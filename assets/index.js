@@ -53,7 +53,7 @@ inputDay.addEventListener("input", () => {
   if (inputDay.value.length == 0) {
     displayErrorDay();
     errorDay.textContent = "This field is required";
-  } else if (!inputDay.value.match(/^[0-9]+$/)) {
+  } else if (!inputDay.value.match(/^[0-9]+$/) || inputDay.value > 31) {
     displayErrorDay();
     errorDay.textContent = "Must be a valid day";
   } else {
@@ -97,28 +97,6 @@ inputYear.addEventListener("input", () => {
 });
 
 /****** FONCTION CALCULER AGE *****/
-
-/*function calculerAge() {
-  const now = new Date();
-  const dateNaissance = new Date(
-    inputYear.value,
-    inputMonth.value - 1,
-    inputDay.value
-  );
-
-  // Calcul de l'âge en jours
-  const diffJours = Math.floor((now - dateNaissance) / (1000 * 60 * 60 * 24));
-  forDay.textContent = diffJours;
-
-  // Calcul de l'âge en mois et années
-  const ageMois =
-    now.getMonth() -
-    dateNaissance.getMonth() +
-    12 * (now.getFullYear() - dateNaissance.getFullYear());
-  const ageAnnees = Math.floor(ageMois / 12);
-  forMonth.textContent = ageMois;
-  forYear.textContent = ageAnnees;
-}*/
 
 function calculateAge() {
   const now = new Date();
